@@ -1,9 +1,29 @@
 import React from "react";
-import { useDataGrid, EditButton, ShowButton, DeleteButton, List, MarkdownField, DateField } from "@refinedev/mui";
+import { useDataGrid, EditButton, ShowButton, List, MarkdownField, DateField } from "@refinedev/mui";
 import { DataGrid, GridColumns } from "@mui/x-data-grid";
 import { useMany } from "@refinedev/core";
+// import { useList } from "@refinedev/core";
 
 export const BlogPostList = () => {
+    // if we need to filter data we use the useList hook from refine core
+    // const postUseListResult = useList({
+    //     resource: "posts",
+    //     sorters: [
+    //         {
+    //             field: "id",
+    //             order: "desc",
+    //         },
+    //     ],
+    //     filters: [
+    //         {
+    //             field: "id",
+    //             operator: "contains",
+    //             value: "21",
+    //         },
+    //     ],
+    // });
+    // console.log({ postUseListResult });
+
     const { dataGridProps } = useDataGrid();
 
     const { data: categoryData, isLoading: categoryIsLoading } = useMany({
