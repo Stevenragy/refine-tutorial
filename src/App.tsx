@@ -5,7 +5,8 @@ import routerBindings, { NavigateToResource, UnsavedChangesNotifier } from "@ref
 import dataProvider from "@refinedev/simple-rest";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { MuiInferencer } from "@refinedev/inferencer/mui";
-import { BlogPostList } from "./pages/blog-posts";
+import { BlogPostList, BlogPostEdit, BlogPostShow } from "./pages/blog-posts";
+import { BlogPostCreate } from "pages/blog-posts/BlogPostCreate";
 
 const App: React.FC = () => {
     return (
@@ -41,9 +42,9 @@ const App: React.FC = () => {
                                 <Route index element={<NavigateToResource resource="blog_posts" />} />
                                 <Route path="blog-posts">
                                     <Route index element={<BlogPostList />} />
-                                    <Route path="show/:id" element={<MuiInferencer />} />
-                                    <Route path="edit/:id" element={<MuiInferencer />} />
-                                    <Route path="create" element={<MuiInferencer />} />
+                                    <Route path="show/:id" element={<BlogPostShow />} />
+                                    <Route path="edit/:id" element={<BlogPostEdit />} />
+                                    <Route path="create" element={<BlogPostCreate />} />
                                 </Route>
                                 <Route path="*" element={<ErrorComponent />} />
                             </Route>
