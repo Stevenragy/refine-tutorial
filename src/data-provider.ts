@@ -2,7 +2,7 @@ import axios from "axios";
 import { CrudFilters, CrudSorting, DataProvider, HttpError, Pagination } from "@refinedev/core";
 import { stringify } from "query-string";
 import { mapOperator } from "@refinedev/simple-rest";
-import { IDataContextProvider, MetaQuery } from "@refinedev/core/dist/interfaces";
+import { MetaQuery } from "@refinedev/core/dist/interfaces";
 
 // Error handling with axios interceptors
 const axiosInstance = axios.create();
@@ -24,7 +24,7 @@ axiosInstance.interceptors.response.use(
 
 const generateFilters = (filters?: CrudFilters) => {
     const queryFilters: { [key: string]: string } = {};
-
+    // eslint-disable-next-line
     filters?.map((filter): void => {
         if ("field" in filter) {
             const { field, operator, value } = filter;
